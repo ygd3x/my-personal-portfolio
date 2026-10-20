@@ -1,69 +1,103 @@
-/* Main page styling */
+/* General page styling */
 body {
-background-color: #f4f4f4;
-color: #222222;
-font-family: Arial, sans-serif;
-margin: 20px;
-}
-
-/* Main heading */
-h1 {
-color: #b22222;
-text-align: center;
-margin: 20px;
+background-color: #111111;
+color: #f5f5f5;
+font-family: "Trebuchet MS", Arial, sans-serif;
+line-height: 1.7;
+margin: 0;
 padding: 20px;
-border-bottom: 3px solid #b22222;
 }
 
-/* Paragraphs */
+/* Heading styling */
+h1 {
+color: #ffffff;
+text-align: center;
+font-size: 38px;
+letter-spacing: 2px;
+margin: 20px;
+padding: 25px;
+border-bottom: 3px solid #e63946;
+}
+
+/* Paragraph styling */
 p {
-line-height: 1.6;
+color: #d0d0d0;
+line-height: 1.8;
 margin: 15px;
 padding: 10px;
 }
 
-/* Navigation bar */
+/* Navigation styling */
 nav {
-background-color: #222222;
-padding: 15px;
+background-color: #202020;
+text-align: center;
+padding: 18px;
 margin: 20px 0;
-border: 2px solid #b22222;
+border: 1px solid #e63946;
+border-radius: 8px;
 }
 
 nav a {
-color: white;
+color: #ffffff;
 text-decoration: none;
-margin: 10px;
+font-weight: bold;
+margin: 10px 15px;
 }
 
-/* Main content section */
+nav a:hover {
+color: #ff4d5a;
+}
+
+/* Content sections */
 section {
-background-color: white;
-margin: 20px;
-padding: 20px;
-border: 2px solid #cccccc;
+background-color: #1c1c1c;
+margin: 25px 10px;
+padding: 25px;
+border: 1px solid #383838;
+border-left: 5px solid #e63946;
+border-radius: 8px;
 }
 
 /* Class selector */
 .highlight {
-color: #b22222;
+color: #ff4d5a;
 font-weight: bold;
 }
 
 /* ID selector */
 #about {
-background-color: #eeeeee;
-padding: 20px;
-margin: 20px;
-border: 2px solid #b22222;
+background-color: #202020;
+padding: 25px;
+margin: 20px 10px;
+border: 2px solid #e63946;
+border-radius: 8px;
 }
 
-/* Footer */
+/* Footer styling */
 footer {
-background-color: #222222;
-color: white;
+background-color: #202020;
+color: #ffffff;
 text-align: center;
+padding: 20px;
+margin-top: 30px;
+border-top: 3px solid #e63946;
+border-radius: 5px;
+}
+
+/* Mobile-friendly styling */
+@media (max-width: 600px) {
+h1 {
+font-size: 28px;
 padding: 15px;
-margin-top: 20px;
-border-top: 3px solid #b22222;
+}
+
+nav a {
+display: inline-block;
+margin: 8px;
+}
+
+section {
+margin: 15px 0;
+padding: 18px;
+}
 }
