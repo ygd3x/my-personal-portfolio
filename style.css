@@ -124,7 +124,13 @@ nav {
 flex-direction: row;
 gap: 24px;
 }
-
+    
+/* Portfolio grid layout */
+.portfolio-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 24px;
+}
 section {
 max-width: 1000px;
 margin: 24px auto;
