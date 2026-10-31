@@ -119,6 +119,18 @@ body {
 padding: 12px;
 }
 
+  @media (min-width: 769px) {
+nav {
+flex-direction: row;
+gap: 24px;
+}
+
+section {
+max-width: 1000px;
+margin: 24px auto;
+}
+}
+
 h1 {
 font-size: 28px;
 }
