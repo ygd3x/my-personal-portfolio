@@ -112,3 +112,33 @@ margin: 15px 0;
 padding: 18px;
 }
 }
+
+/* Responsive design */
+@media (max-width: 768px) {
+body {
+padding: 12px;
+}
+
+h1 {
+font-size: 28px;
+}
+
+nav {
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+
+nav a {
+display: block;
+margin: 5px;
+}
+
+section {
+padding: 15px;
+}
+
+p {
+font-size: 15px;
+}
+}
