@@ -23,6 +23,8 @@ This website introduces me, showcases my work and projects, and shares my person
 
 ## Visual Design
 
+- **Proximity:** Grouped related projects, experience, and descriptions together so visitors can easily understand the information.
+- **Consistency:** Used the same color palette, navigation, fonts, and design patterns across all three website pages.
 - Used a consistent red, black, white, and gray color palette.
 - Used proximity to group related information into sections.
 - Used consistency to maintain the same navigation and overall design across pages.
