@@ -150,4 +150,17 @@ max-width: 1000px;
 margin: 24px auto;
 }
 }
+/* Accessible form error styling */
+.error-message {
+color: #ff4d5a;
+font-weight: 600;
+margin: 5px 0;
+}
+
+input[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+border: 2px solid #ff4d5a;
+outline: 2px solid #ff4d5a;
+}
+
 
