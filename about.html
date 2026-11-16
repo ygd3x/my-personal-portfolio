@@ -222,10 +222,14 @@ if (!field.input.value.trim()) {
 errorElement.textContent = field.label + " is required.";
 field.input.setAttribute("aria-invalid", "true");
 hasErrors = true;
-} else if (field.input.type === "email" && !field.input.validity.valid) {
+} else if (
+field.input.type === "email" &&
+!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.input.value.trim())
+) {
 errorElement.textContent = "Please enter a valid email address.";
 field.input.setAttribute("aria-invalid", "true");
 hasErrors = true;
+}
 }
 });
 
