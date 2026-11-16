@@ -130,79 +130,118 @@
 
             </p>
 
-            <form action="#" method="post">
+            <form action="#" method="post" id="contact-form" novalidate>
 
-                <fieldset>
+<fieldset>
+<legend>Send Me a Message</legend>
 
-                    <legend>Send Me a Message</legend>
+<p>Fields marked with * are required.</p>
 
-                    <label for="name">Full Name</label>
+<div>
+<label for="name">Full Name *</label>
+<input
+type="text"
+id="name"
+name="name"
+autocomplete="name"
+required
+aria-required="true"
+>
+<p id="name-error" class="error-message" aria-live="polite"></p>
+</div>
 
-                    <input
+<div>
+<label for="email">Email Address *</label>
+<input
+type="email"
+id="email"
+name="email"
+autocomplete="email"
+required
+aria-required="true"
+aria-describedby="email-help email-error"
+>
+<p id="email-help">Enter a valid email address.</p>
+<p id="email-error" class="error-message" aria-live="polite"></p>
+</div>
 
-                        type="text"
+<div>
+<label for="subject">Subject</label>
+<input
+type="text"
+id="subject"
+name="subject"
+>
+</div>
 
-                        id="name"
+<div>
+<label for="message">Your Message *</label>
+<textarea
+id="message"
+name="message"
+rows="6"
+required
+aria-required="true"
+></textarea>
+<p id="message-error" class="error-message" aria-live="polite"></p>
+</div>
 
-                        name="name"
+<button type="submit">Send Message</button>
 
-                        autocomplete="name"
+<p id="form-status" role="status" aria-live="polite"></p>
 
-                        required
+</fieldset>
 
-                    >
+</form>
 
-                    <label for="email">Email Address</label>
+<script>
+const form = document.getElementById("contact-form");
 
-                    <input
+form.addEventListener("submit", function(event) {
+event.preventDefault();
 
-                        type="email"
+const name = document.getElementById("name");
+const email = document.getElementById("email");
+const message = document.getElementById("message");
 
-                        id="email"
+const fields = [
+{ input: name, error: "name-error", label: "Full Name" },
+{ input: email, error: "email-error", label: "Email Address" },
+{ input: message, error: "message-error", label: "Your Message" }
+];
 
-                        name="email"
+let hasErrors = false;
 
-                        autocomplete="email"
+fields.forEach(function(field) {
+const errorElement = document.getElementById(field.error);
+errorElement.textContent = "";
 
-                        required
+field.input.removeAttribute("aria-invalid");
 
-                        aria-describedby="email-help"
+if (!field.input.value.trim()) {
+errorElement.textContent = field.label + " is required.";
+field.input.setAttribute("aria-invalid", "true");
+hasErrors = true;
+} else if (field.input.type === "email" && !field.input.validity.valid) {
+errorElement.textContent = "Please enter a valid email address.";
+field.input.setAttribute("aria-invalid", "true");
+hasErrors = true;
+}
+});
 
-                    >
+const status = document.getElementById("form-status");
 
-                    <p id="email-help">Please enter a valid email address.</p>
+if (hasErrors) {
+status.textContent = "Please correct the errors before submitting.";
+const firstInvalid = form.querySelector('[aria-invalid="true"]');
+firstInvalid.focus();
+} else {
+status.textContent = "Your information passed validation. Message delivery is not configured yet.";
+}
+});
+</script>
 
-                    <label for="subject">Subject</label>
 
-                    <input
-
-                        type="text"
-
-                        id="subject"
-
-                        name="subject"
-
-                    >
-
-                    <label for="message">Your Message</label>
-
-                    <textarea
-
-                        id="message"
-
-                        name="message"
-
-                        rows="6"
-
-                        required
-
-                    ></textarea>
-
-                    <button type="submit">Send Message</button>
-
-                </fieldset>
-
-            </form>
 
         </section>
 
