@@ -20,6 +20,9 @@ This website introduces me, showcases my work and projects, and shares my person
 - Reviewed page structure and navigation to improve accessibility.
 - Added accessible labels to contact form fields.
 - Used a fieldset and legend to group related form controls.
+- - Tested text and background color combinations using the WebAIM Contrast Checker.
+- Verified that the tested color combinations meet WCAG AA contrast requirements.
+
 
 ## Visual Design
 
