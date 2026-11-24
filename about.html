@@ -4,199 +4,190 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>About Me | Delexcia McCreary</title>
+<title>About Me | Delexcia McCreary</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-    <header>
+<header>
 
-        <h1>My Story, My Future</h1>
+<h1>My Story, My Future</h1>
 
-    </header>
+</header>
 
-    <nav aria-label="Main navigation">
+<nav aria-label="Main navigation">
 
-        <a href="index.html">Home</a>
+<a href="index.html">Home</a>
 
-        <a href="projects.html">Projects/Work</a>
+<a href="projects.html">Projects/Work</a>
 
-        <a href="about.html" aria-current="page">About/Contact</a>
+<a href="about.html" aria-current="page">About/Contact</a>
 
-    </nav>
+</nav>
 
-    <main>
+<main>
 
-        <section>
+<section>
 
-            <h2>My Story</h2>
+<h2>My Story</h2>
 
-            <p>
+<p>
 
-                My life experiences have shaped the person I am and the future I want to create.
+My life experiences have shaped the person I am and the future I want to create.
 
-                Growing up, I wished for more financial stability, better opportunities, and the
+Growing up, I wished for more financial stability, better opportunities, and the
 
-                kind of love and support that could make life feel different. Those are things I
+kind of love and support that could make life feel different. Those are things I
 
-                carry with me, not because I want to live in the past, but because I want to build
+carry with me, not because I want to live in the past, but because I want to build
 
-                something better for my future.
+something better for my future.
 
-            </p>
+</p>
 
-            <p>
+<p>
 
-                I'm a quiet person who listens and observes more than I talk. Sometimes people see
+I'm a quiet person who listens and observes more than I talk. Sometimes people see
 
-                how I act without understanding the experiences behind it. There's more to me
+how I act without understanding the experiences behind it. There's more to me
 
-                than what people see on the surface, and my story is bigger than the assumptions
+than what people see on the surface, and my story is bigger than the assumptions
 
-                people make about me.
+people make about me.
 
-            </p>
+</p>
 
-        </section>
+</section>
 
-        <section>
+<section>
 
-            <h2>My Dreams</h2>
+<h2>My Dreams</h2>
 
-            <p>
+<p>
 
-                I'm pursuing Information Technology with the goal of becoming an artificial
+I'm pursuing Information Technology with the goal of becoming an artificial
 
-                intelligence and machine learning engineer. I also express myself through
+intelligence and machine learning engineer. I also express myself through
 
-                music as YGD3x and have a creative vision for my clothing brand,
+music as YGD3x and have a creative vision for my clothing brand,
 
-                BTRT (Broke Today Rich Tomorrow).
+BTRT (Broke Today Rich Tomorrow).
 
-            </p>
+</p>
 
-            <p>
+<p>
 
-                Whether my future takes me through technology, music, entrepreneurship,
+Whether my future takes me through technology, music, entrepreneurship,
 
-                or a combination of all three, I want to keep growing and creating
+or a combination of all three, I want to keep growing and creating
 
-                opportunities for myself.
+opportunities for myself.
 
-            </p>
+</p>
 
-        </section>
+</section>
 
-        <section>
+<section>
 
-            <h2>The Future I Want</h2>
+<h2>The Future I Want</h2>
 
-            <p>
+<p>
 
-                More than anything, I want happiness. I want genuine friendships, a place
+More than anything, I want happiness. I want genuine friendships, a place
 
-                where I feel at home, and a loving family of my own. I want my future children
+where I feel at home, and a loving family of my own. I want my future children
 
-                to grow up feeling supported, valued, and loved. I want to give them the kind
+to grow up feeling supported, valued, and loved. I want to give them the kind
 
-                of stability and love I wished for growing up.
+of stability and love I wished for growing up.
 
-            </p>
+</p>
 
-            <p>
+<p>
 
-                My goal isn't just to become successful. It's to build a life that makes me
+My goal isn't just to become successful. It's to build a life that makes me
 
-                happy and a family that never has to question whether they're loved.
+happy and a family that never has to question whether they're loved.
 
-            </p>
+</p>
 
-        </section>
-        <section id="interactive">
-            <h2>More About My Goals</h2>
-          <section id="github-info">
+</section>
+
+<!-- DOM Interaction -->
+
+<section id="interactive">
+
+<h2>More About My Goals</h2>
+
+<button type="button" id="toggle-button">
+
+Show More
+
+</button>
+
+<p id="extra-info" hidden>
+
+I want to build innovative technology, create my own
+
+gaming company, and use artificial intelligence to
+
+develop new experiences for people.
+
+</p>
+
+</section>
+
+<!-- GitHub API Fetch -->
+
+<section id="github-info">
+
 <h2>My GitHub Portfolio</h2>
 
 <button type="button" id="load-github">
+
 Load Portfolio Information
+
 </button>
 
 <p id="github-status" aria-live="polite">
+
 Click the button to load my GitHub information.
+
 </p>
 
 <div id="github-details"></div>
-              const githubButton = document.querySelector("#load-github");
-const githubStatus = document.querySelector("#github-status");
-const githubDetails = document.querySelector("#github-details");
 
-githubButton.addEventListener("click", async function() {
-githubStatus.textContent = "Loading GitHub information...";
-githubDetails.textContent = "";
-
-try {
-const response = await fetch(
-"https://api.github.com/repos/ygd3x/my-personal-portfolio"
-);
-
-if (!response.ok) {
-throw new Error("Could not load repository information.");
-}
-
-const data = await response.json();
-
-githubStatus.textContent = "Portfolio information loaded!";
-
-githubDetails.innerHTML = `
-<p><strong>Repository:</strong> ${data.name}</p>
-<p><strong>Stars:</strong> ${data.stargazers_count}</p>
-<p><strong>Forks:</strong> ${data.forks_count}</p>
-<p><a href="${data.html_url}" target="_blank"
-rel="noopener noreferrer">View My GitHub Repository</a></p>
-`;
-
-} catch (error) {
-githubStatus.textContent =
-"Unable to load GitHub information. Please try again.";
-}
-});
 </section>
-           <button type="button" id="toggle-button">
-              Show More
-           </button>
 
-           <p id="extra-info" hidden>
-               I want to build innovative technology, create my own
-               gaming company, and use artificial intelligence to
-              develop new experiences for people.
-          </p>
-       </section>
-        <section id="contact">
+<section id="contact">
 
-            <h2>Contact Me</h2>
+<h2>Contact Me</h2>
 
-            <p>
+<p>
 
-                Have a question or want to connect? Send me a message using the form below.
+Have a question or want to connect? Send me a message using the form below.
 
-            </p>
+</p>
 
-            <form action="#" method="post" id="contact-form" novalidate>
+<form action="#" method="post" id="contact-form" novalidate>
 
 <fieldset>
+
 <legend>Send Me a Message</legend>
 
 <p>Fields marked with * are required.</p>
 
 <div>
+
 <label for="name">Full Name *</label>
+
 <input
 type="text"
 id="name"
@@ -205,11 +196,15 @@ autocomplete="name"
 required
 aria-required="true"
 >
+
 <p id="name-error" class="error-message" aria-live="polite"></p>
+
 </div>
 
 <div>
+
 <label for="email">Email Address *</label>
+
 <input
 type="email"
 id="email"
@@ -219,21 +214,29 @@ required
 aria-required="true"
 aria-describedby="email-help email-error"
 >
+
 <p id="email-help">Enter a valid email address.</p>
+
 <p id="email-error" class="error-message" aria-live="polite"></p>
+
 </div>
 
 <div>
+
 <label for="subject">Subject</label>
+
 <input
 type="text"
 id="subject"
 name="subject"
 >
+
 </div>
 
 <div>
+
 <label for="message">Your Message *</label>
+
 <textarea
 id="message"
 name="message"
@@ -241,7 +244,9 @@ rows="6"
 required
 aria-required="true"
 ></textarea>
+
 <p id="message-error" class="error-message" aria-live="polite"></p>
+
 </div>
 
 <button type="submit">Send Message</button>
@@ -250,11 +255,26 @@ aria-required="true"
 
 </fieldset>
 
-</form> 
+</form>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>&copy; 2026 Delexcia McCreary</p>
+
+</footer>
+
 <script>
+
+// Contact Form Validation
+
 const form = document.querySelector("#contact-form");
 
 form.addEventListener("submit", function(event) {
+
 event.preventDefault();
 
 const name = form.querySelector("#name");
@@ -270,12 +290,14 @@ const fields = [
 let hasErrors = false;
 
 fields.forEach(function(field) {
+
 const errorElement = document.querySelector("#" + field.error);
 
 errorElement.textContent = "";
 field.input.removeAttribute("aria-invalid");
 
 if (!field.input.value.trim()) {
+
 errorElement.textContent = field.label + " is required.";
 field.input.setAttribute("aria-invalid", "true");
 hasErrors = true;
@@ -284,54 +306,124 @@ hasErrors = true;
 field.input.type === "email" &&
 !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.input.value.trim())
 ) {
+
 errorElement.textContent = "Please enter a valid email address.";
 field.input.setAttribute("aria-invalid", "true");
 hasErrors = true;
+
 }
+
 });
 
 const status = document.querySelector("#form-status");
 
 if (hasErrors) {
+
 status.textContent = "Please correct the errors before submitting.";
 
 const firstInvalid = form.querySelector('[aria-invalid="true"]');
+
 firstInvalid.focus();
 
 } else {
+
 status.textContent =
 "Your information passed validation. Message delivery is not configured yet.";
+
 }
+
 });
+
+
+// Show More / Show Less
+
 const toggleButton = document.querySelector("#toggle-button");
+
 const extraInfo = document.querySelector("#extra-info");
 
 toggleButton.addEventListener("click", function() {
+
 if (extraInfo.hidden) {
+
 extraInfo.hidden = false;
+
 toggleButton.textContent = "Show Less";
+
 } else {
+
 extraInfo.hidden = true;
+
 toggleButton.textContent = "Show More";
+
 }
+
 });
+
+
+// GitHub API Fetch
+
+const githubButton = document.querySelector("#load-github");
+
+const githubStatus = document.querySelector("#github-status");
+
+const githubDetails = document.querySelector("#github-details");
+
+githubButton.addEventListener("click", async function() {
+
+githubStatus.textContent = "Loading GitHub information...";
+
+githubDetails.textContent = "";
+
+githubButton.disabled = true;
+
+try {
+
+const response = await fetch(
+"https://api.github.com/repos/ygd3x/my-personal-portfolio"
+);
+
+if (!response.ok) {
+
+throw new Error("Could not load repository information.");
+
+}
+
+const data = await response.json();
+
+githubStatus.textContent = "Portfolio information loaded!";
+
+githubDetails.innerHTML = `
+<p><strong>Repository:</strong> ${data.name}</p>
+
+<p><strong>Stars:</strong> ${data.stargazers_count}</p>
+
+<p><strong>Forks:</strong> ${data.forks_count}</p>
+
+<p>
+<a href="${data.html_url}" target="_blank"
+rel="noopener noreferrer">
+View My GitHub Repository
+</a>
+</p>
+`;
+
+} catch (error) {
+
+githubStatus.textContent =
+"Unable to load GitHub information. Please try again.";
+
+} finally {
+
+githubButton.disabled = false;
+
+}
+
+});
+
 </script>
-
-
-
-        </section>
-
-    </main>
-
-    <footer>
-
-        <p>&copy; 2026 Delexcia McCreary</p>
-
-    </footer>
 
 </body>
 
 </html>
-
 
 
