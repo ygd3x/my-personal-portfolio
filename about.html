@@ -119,7 +119,19 @@
             </p>
 
         </section>
+        <section id="interactive">
+            <h2>More About My Goals</h2>
 
+           <button type="button" id="toggle-button">
+              Show More
+           </button>
+
+           <p id="extra-info" hidden>
+               I want to build innovative technology, create my own
+               gaming company, and use artificial intelligence to
+              develop new experiences for people.
+          </p>
+       </section>
         <section id="contact">
 
             <h2>Contact Me</h2>
@@ -243,6 +255,18 @@ firstInvalid.focus();
 } else {
 status.textContent =
 "Your information passed validation. Message delivery is not configured yet.";
+}
+});
+const toggleButton = document.querySelector("#toggle-button");
+const extraInfo = document.querySelector("#extra-info");
+
+toggleButton.addEventListener("click", function() {
+if (extraInfo.hidden) {
+extraInfo.hidden = false;
+toggleButton.textContent = "Show Less";
+} else {
+extraInfo.hidden = true;
+toggleButton.textContent = "Show More";
 }
 });
 </script>
