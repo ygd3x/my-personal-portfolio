@@ -192,17 +192,16 @@ aria-required="true"
 
 </fieldset>
 
-</form>
-
+</form> 
 <script>
-const form = document.getElementById("contact-form");
+const form = document.querySelector("#contact-form");
 
 form.addEventListener("submit", function(event) {
 event.preventDefault();
 
-const name = document.getElementById("name");
-const email = document.getElementById("email");
-const message = document.getElementById("message");
+const name = form.querySelector("#name");
+const email = form.querySelector("#email");
+const message = form.querySelector("#message");
 
 const fields = [
 { input: name, error: "name-error", label: "Full Name" },
@@ -213,15 +212,16 @@ const fields = [
 let hasErrors = false;
 
 fields.forEach(function(field) {
-const errorElement = document.getElementById(field.error);
-errorElement.textContent = "";
+const errorElement = document.querySelector("#" + field.error);
 
+errorElement.textContent = "";
 field.input.removeAttribute("aria-invalid");
 
 if (!field.input.value.trim()) {
 errorElement.textContent = field.label + " is required.";
 field.input.setAttribute("aria-invalid", "true");
 hasErrors = true;
+
 } else if (
 field.input.type === "email" &&
 !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.input.value.trim())
@@ -230,17 +230,19 @@ errorElement.textContent = "Please enter a valid email address.";
 field.input.setAttribute("aria-invalid", "true");
 hasErrors = true;
 }
-}
 });
 
-const status = document.getElementById("form-status");
+const status = document.querySelector("#form-status");
 
 if (hasErrors) {
 status.textContent = "Please correct the errors before submitting.";
+
 const firstInvalid = form.querySelector('[aria-invalid="true"]');
 firstInvalid.focus();
+
 } else {
-status.textContent = "Your information passed validation. Message delivery is not configured yet.";
+status.textContent =
+"Your information passed validation. Message delivery is not configured yet.";
 }
 });
 </script>
@@ -260,5 +262,6 @@ status.textContent = "Your information passed validation. Message delivery is no
 </body>
 
 </html>
+
 
 
