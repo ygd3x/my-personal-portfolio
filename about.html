@@ -121,7 +121,53 @@
         </section>
         <section id="interactive">
             <h2>More About My Goals</h2>
+          <section id="github-info">
+<h2>My GitHub Portfolio</h2>
 
+<button type="button" id="load-github">
+Load Portfolio Information
+</button>
+
+<p id="github-status" aria-live="polite">
+Click the button to load my GitHub information.
+</p>
+
+<div id="github-details"></div>
+              const githubButton = document.querySelector("#load-github");
+const githubStatus = document.querySelector("#github-status");
+const githubDetails = document.querySelector("#github-details");
+
+githubButton.addEventListener("click", async function() {
+githubStatus.textContent = "Loading GitHub information...";
+githubDetails.textContent = "";
+
+try {
+const response = await fetch(
+"https://api.github.com/repos/ygd3x/my-personal-portfolio"
+);
+
+if (!response.ok) {
+throw new Error("Could not load repository information.");
+}
+
+const data = await response.json();
+
+githubStatus.textContent = "Portfolio information loaded!";
+
+githubDetails.innerHTML = `
+<p><strong>Repository:</strong> ${data.name}</p>
+<p><strong>Stars:</strong> ${data.stargazers_count}</p>
+<p><strong>Forks:</strong> ${data.forks_count}</p>
+<p><a href="${data.html_url}" target="_blank"
+rel="noopener noreferrer">View My GitHub Repository</a></p>
+`;
+
+} catch (error) {
+githubStatus.textContent =
+"Unable to load GitHub information. Please try again.";
+}
+});
+</section>
            <button type="button" id="toggle-button">
               Show More
            </button>
